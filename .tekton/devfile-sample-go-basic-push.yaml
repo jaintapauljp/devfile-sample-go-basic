@@ -214,7 +214,6 @@ spec:
             cat /etc
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
             sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
-            # sed -i 's+/workspaceOR/results/+$(results.ICR_OUTPUT.path)+' config
             echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
             sh configure_run.sh Go

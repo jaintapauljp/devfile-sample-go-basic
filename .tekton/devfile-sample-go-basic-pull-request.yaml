@@ -129,6 +129,11 @@ spec:
     - description: ""
       name: JAVA_COMMUNITY_DEPENDENCIES
       value: $(tasks.build-container.results.JAVA_COMMUNITY_DEPENDENCIES)
+     
+    - description: Tekton task output.
+      name: ICR_OUTPUT
+      value: 
+
     tasks:
     - name: init
       params:
@@ -188,7 +193,7 @@ spec:
 
       params:
       - name: iCR-License
-        value: $(params.iCR-License)
+        value: 
         description: The license required to use the iCR to scan the source code.
 
       runAfter:
@@ -215,11 +220,11 @@ spec:
             #!/usr/bin/env bash
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
             sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
-            sed -i 's+/workspaceOR/results/+$(results.ICR_OUTPUT.path)+' config
+            # sed -i 's+/workspaceOR/results/+$(results.ICR_OUTPUT.path)+' config
             echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
             sh configure_run.sh Go
-            ls $(results.ICR_OUTPUT.path)
+            # ls $(results.ICR_OUTPUT.path)
 
 
     - name: prefetch-dependencies

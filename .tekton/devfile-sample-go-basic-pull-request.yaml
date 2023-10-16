@@ -218,7 +218,6 @@ spec:
             sed -i 's+/workspaceOR/results/+$(results.ICR_OUTPUT.path)+' config
             echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
-            cat config
             sh configure_run.sh Go
             ls $(results.ICR_OUTPUT.path)
 

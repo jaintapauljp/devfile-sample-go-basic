@@ -210,13 +210,14 @@ spec:
           script: |
             #!/usr/bin/env bash
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
+            echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
             sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
             cat config
             sh configure_run.sh Go
-            ls /workspaceOR/results/
-      
-                
+            ls /workspaceOR/results/sarif/
+
+
     - name: prefetch-dependencies
       params:
       - name: input

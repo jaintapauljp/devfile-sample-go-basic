@@ -177,6 +177,42 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
+
+    - name: icr-scan
+      params:
+      - name: iCR-License
+        value: $(params.iCR-License)
+        description: The license required to use the iCR to scan the source code.
+
+      runAfter:
+      - clone-repository  
+      workspaces:
+      - name: source
+        workspace: workspace
+        
+      taskSpec: 
+       workspaces:
+         - name: source
+           description: The source of the repository
+
+       steps:
+        - name: icr-scan
+          image: docker.io/openrefactory/icr-unified-engine:latest
+
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 1000m
+
+          script: |
+            #!/usr/bin/env bash
+            echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
+            echo "GOPATH /workspaceOR/GP/" >> config
+            sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
+            cat config
+            sh configure_run.sh Go
+            ls /workspaceOR/results/
+
     - name: prefetch-dependencies
       params:
       - name: input

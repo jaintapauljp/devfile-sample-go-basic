@@ -223,6 +223,7 @@ spec:
 
           script: |
             #!/usr/bin/env bash
+            echo "$(params.ICR-SECRET)"
             ICR_TOKEN_PATH="/etc/secrets/icr-token"
             ls ${ICR_TOKEN_PATH}
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config

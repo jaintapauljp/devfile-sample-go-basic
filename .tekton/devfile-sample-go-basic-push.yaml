@@ -189,6 +189,13 @@ spec:
         value: $(params.iCR-License)
         description: The license required to use the iCR to scan the source code.
 
+
+      volumes:
+      - name: icr-secret
+        secret:
+         secretName: $(params.ICR-SECRET)
+         optional: true  
+
       runAfter:
       - clone-repository  
       workspaces:
@@ -209,9 +216,15 @@ spec:
               memory: 50Mi
               cpu: 1000m
 
+          volumeMounts:
+            - name: icr-secret
+              mountPath: "/etc/secrets"
+              readOnly: true 
+
           script: |
             #!/usr/bin/env bash
-            cat /etc
+            ICR_TOKEN_PATH="/etc/secrets/icr-token"
+            ls ${ICR_TOKEN_PATH}
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
             sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
             echo "SARIF /workspaceOR/results/sarif/" >> config

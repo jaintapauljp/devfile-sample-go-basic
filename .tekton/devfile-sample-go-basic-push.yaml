@@ -179,6 +179,11 @@ spec:
         workspace: git-auth
 
     - name: icr-scan
+      
+      results:
+      - description: Tekton task output.
+        name: ICR_OUTPUT
+
       params:
       - name: iCR-License
         value: $(params.iCR-License)
@@ -207,12 +212,14 @@ spec:
           script: |
             #!/usr/bin/env bash
             echo "LICENSE_KEY H4DR-MPJY-ZLNJ-XNOR" >> config
+            sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
+            sed -i 's+/workspaceOR/results/+$(results.ICR_OUTPUT.path)+' config
             echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
-            sed -i 's+/workspaceOR/source/+$(workspaces.source.path)+' config
             cat config
             sh configure_run.sh Go
-            ls /workspaceOR/results/sarif/
+            ls $(results.ICR_OUTPUT.path)
+
             
 
     - name: prefetch-dependencies

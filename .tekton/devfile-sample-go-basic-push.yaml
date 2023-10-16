@@ -216,10 +216,10 @@ spec:
               memory: 50Mi
               cpu: 1000m
 
-          volumeMounts:
-            - name: icr-secret
-              mountPath: "/etc/secrets"
-              readOnly: true 
+          # volumeMounts:
+          #   - name: icr-secret
+          #     mountPath: "/etc/secrets"
+          #     readOnly: true 
 
           script: |
             #!/usr/bin/env bash

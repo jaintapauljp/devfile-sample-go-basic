@@ -180,9 +180,9 @@ spec:
 
     - name: icr-scan
       
-      results:
-      - description: Tekton task output.
-        name: ICR_OUTPUT
+      # results:
+      # - description: Tekton task output.
+      #   name: ICR_OUTPUT
 
       params:
       - name: iCR-License

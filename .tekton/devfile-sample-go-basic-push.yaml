@@ -217,8 +217,6 @@ spec:
             echo "SARIF /workspaceOR/results/sarif/" >> config
             echo "GOPATH /workspaceOR/GP/" >> config
             sh configure_run.sh Go
-            # ls $(results.ICR_OUTPUT.path)
-
             
 
     - name: prefetch-dependencies

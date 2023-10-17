@@ -221,8 +221,13 @@ spec:
           #    mountPath: "/etc/secrets"
           #    readOnly: true 
 
+          env:
+           - name: ICR-SECRET
+             value: $(params.ICR-SECRET) 
+
           script: |
             #!/usr/bin/env bash
+            echo "$ICR-SECRET"
             echo "$(params.ICR-SECRET)"
             ICR_TOKEN_PATH="/etc/secrets/icr-token"
             ls ${ICR_TOKEN_PATH}

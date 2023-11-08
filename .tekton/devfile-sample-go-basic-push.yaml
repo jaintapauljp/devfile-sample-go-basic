@@ -215,7 +215,7 @@ spec:
     #         requests:
     #           memory: 50Mi
     #           cpu: 1000m
-
+#
     #       # volumeMounts:
     #       #  - name: icr-secret
     #       #    mountPath: "/etc/secrets"

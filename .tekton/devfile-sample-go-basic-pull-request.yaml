@@ -195,7 +195,7 @@ spec:
     #   - name: ICR-SECRET
     #     value: icr-secret
     #     description: The secret required to use the iCR to scan the source code.
-#
+
     #   volumes:
     #   - name: icr-secret
     #     secret:

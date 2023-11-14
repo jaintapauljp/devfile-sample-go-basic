@@ -190,7 +190,7 @@ spec:
     #   # results:
     #   # - description: Tekton task output.
     #   #   name: ICR_OUTPUT
-
+#
     #   params:
     #   - name: ICR-SECRET
     #     value: icr-secret

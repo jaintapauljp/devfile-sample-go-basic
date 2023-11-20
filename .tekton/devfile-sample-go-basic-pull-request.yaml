@@ -211,7 +211,6 @@ spec:
     #    workspaces:
     #      - name: source
     #        description: The source of the repository
-#
     #    steps:
     #     - name: icr-scan
     #       image: docker.io/openrefactory/icr-unified-engine:latest

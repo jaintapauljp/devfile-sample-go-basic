@@ -226,7 +226,7 @@ spec:
     #        - name: icr-secret
     #          mountPath: "/etc/secrets"
     #          readOnly: true  
-
+#
     #       env:
     #        - name: ICR-SECRET
     #          value: $(params.ICR-SECRET)  

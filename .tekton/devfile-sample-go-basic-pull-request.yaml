@@ -242,7 +242,7 @@ spec:
             # echo "SARIF /workspaceOR/results/sarif/" >> config
             # echo "GOPATH /workspaceOR/GP/" >> config
     #         sh configure_run.sh Go
-#
+    
     - name: prefetch-dependencies
       params:
       - name: input

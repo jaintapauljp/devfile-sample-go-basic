@@ -129,10 +129,6 @@ spec:
     - description: ""
       name: JAVA_COMMUNITY_DEPENDENCIES
       value: $(tasks.build-container.results.JAVA_COMMUNITY_DEPENDENCIES)
-     
-    - description: Tekton task output.
-      name: ICR_OUTPUT
-      value: 
 
     tasks:
     - name: init

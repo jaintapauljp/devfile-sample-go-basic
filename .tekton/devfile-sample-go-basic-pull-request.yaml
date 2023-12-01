@@ -214,7 +214,7 @@ spec:
     #    steps:
     #     - name: icr-scan
     #       image: docker.io/openrefactory/icr-unified-engine:latest
-
+#
 
     #       resources:
     #         requests:
